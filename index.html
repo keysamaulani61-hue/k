@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keisa Hosting Shop 💖</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(to right, #ffc0cb, #ffe4e1);
+            text-align: center;
+            color: #ff4d6d;
+        }
+
+        h1 {
+            animation: fadeIn 2s;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 260px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px pink;
+            animation: muncul 1s ease;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background: #ff4d6d;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff85a2;
+        }
+
+        #keranjang {
+            margin-top: 30px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 15px pink;
+        }
+
+        @keyframes muncul {
+            from {opacity:0; transform:translateY(50px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0;}
+            to {opacity:1;}
+        }
+    </style>
+</head>
+<body>
+
+<h1>💖 Keisa Hosting Shop 💖</h1>
+<p>Pilih paket favorit kamu 🛍️✨</p>
+
+<div class="card">
+    <h2>🌸 Paket Imut</h2>
+    <p>Gratis 🎁</p>
+    <button onclick="tambah('Paket Imut', 0)">Tambah 💕</button>
+</div>
+
+<div class="card">
+    <h2>🎀 Paket Gemoy</h2>
+    <p>Rp10.000</p>
+    <button onclick="tambah('Paket Gemoy', 10000)">Tambah 💖</button>
+</div>
+
+<div class="card">
+    <h2>🧸 Paket Sultan</h2>
+    <p>Rp25.000</p>
+    <button onclick="tambah('Paket Sultan', 25000)">Tambah ✨</button>
+</div>
+
+<div id="keranjang">
+    <h2>🛒 Keranjang</h2>
+    <ul id="list"></ul>
+    <p>Total: Rp <span id="total">0</span></p>
+    <button onclick="checkout()">Checkout 💳</button>
+</div>
+
+<script>
+let total = 0;
+
+function tambah(nama, harga) {
+    let list = document.getElementById("list");
+    let item = document.createElement("li");
+    item.textContent = nama + " - Rp" + harga;
+    list.appendChild(item);
+
+    total += harga;
+    document.getElementById("total").textContent = total;
+}
+
+function checkout() {
+    alert("Terima kasih sudah belanja di Keisa Hosting 💖🛍️\nTotal: Rp" + total);
+}
+</script>
+
+</body>
+</html>
